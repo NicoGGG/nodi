@@ -52,9 +52,13 @@ interface Args {
     await fs.mkdir(`${argv.project}/src`, { recursive: true });
     const files = await Promise.all(renderedFiles);
 
+    const writtenFiles = new Array<Promise<void>>();
     files.forEach(async (file, index) => {
-      await fs.writeFile(`${argv.project}/${templates[index]}`, file);
+      writtenFiles.push(
+        fs.writeFile(`${argv.project}/${templates[index]}`, file),
+      );
     });
+    await Promise.all(writtenFiles);
     console.log('Files written successfully.');
     await fs.rename(`${argv.project}/index.ts`, `${argv.project}/src/index.ts`);
     console.log('Installing dependencies...');
@@ -63,20 +67,20 @@ interface Args {
       stdio: 'ignore',
       cwd: argv.project,
     });
+
+    console.log('Initializing git repository...');
     await command('git init', {
       stdio: 'ignore',
       cwd: argv.project,
     });
-    await command('git add .'),
-      {
-        stdio: 'ignore',
-        cwd: argv.project,
-      };
-    await command("git commit -m 'init commit'"),
-      {
-        stdio: 'ignore',
-        cwd: argv.project,
-      };
+    await command('git add .', {
+      stdio: 'ignore',
+      cwd: argv.project,
+    });
+    await command('git commit -minit', {
+      stdio: 'ignore',
+      cwd: argv.project,
+    });
 
     console.log('Template rendered and written to file successfully.');
   } catch (err) {
