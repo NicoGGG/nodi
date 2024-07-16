@@ -43,7 +43,7 @@ interface Args {
     const renderedFiles = new Array<Promise<string>>();
     templates.forEach((file) => {
       renderedFiles.push(
-        ejs.renderFile(`${templatesDir}/${file}`, {
+        ejs.renderFile(`${templatesDir}/${file}.ejs`, {
           name: argv.project,
         }),
       );
@@ -58,9 +58,25 @@ interface Args {
     console.log('Files written successfully.');
     await fs.rename(`${argv.project}/index.ts`, `${argv.project}/src/index.ts`);
     console.log('Installing dependencies...');
-    const cmd = 'npm install --verbose';
 
-    await command(cmd, { stdio: 'ignore', cwd: argv.project });
+    await command('npm install --verbose', {
+      stdio: 'ignore',
+      cwd: argv.project,
+    });
+    await command('git init', {
+      stdio: 'ignore',
+      cwd: argv.project,
+    });
+    await command('git add .'),
+      {
+        stdio: 'ignore',
+        cwd: argv.project,
+      };
+    await command("git commit -m 'init commit'"),
+      {
+        stdio: 'ignore',
+        cwd: argv.project,
+      };
 
     console.log('Template rendered and written to file successfully.');
   } catch (err) {
