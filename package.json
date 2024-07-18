@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/NicoGGG/nodi.git"
   },
+  "private": false,
   "author": "NicoGGG",
   "types": "lib/index.d.ts",
   "main": "lib/index.js",
