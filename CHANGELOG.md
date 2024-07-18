@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/NicoGGG/nodi/compare/v1.0.1...v1.0.2) (2024-07-18)
+
+
+### Bug Fixes
+
+* npm package version broken ([993d22f](https://github.com/NicoGGG/nodi/commit/993d22f62f930ac18c46712bc990f7b0e4fefbb9))
+
 ## [1.0.1](https://github.com/NicoGGG/nodi/compare/v1.0.0...v1.0.1) (2024-07-18)
 
 
