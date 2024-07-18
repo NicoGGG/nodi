@@ -13,7 +13,7 @@
     "nodi": "lib/index.js"
   },
   "scripts": {
-    "build": "rm -rf lib && npx tsc -p tsconfig.build.json && cp -rf src/templates lib/templates",
+    "build": "npx tsc -p tsconfig.build.json && cp -rf src/templates lib/templates",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
