@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/NicoGGG/nodi/compare/v1.0.4...v1.0.5) (2024-07-18)
+
+
+### Bug Fixes
+
+* npm public package ([b1177d1](https://github.com/NicoGGG/nodi/commit/b1177d16b980231c904f6307fb05fc6da2cf6765))
+
 ## [1.0.4](https://github.com/NicoGGG/nodi/compare/v1.0.3...v1.0.4) (2024-07-18)
 
 
