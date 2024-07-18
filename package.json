@@ -1,6 +1,6 @@
 {
   "name": "@nicoggg/nodi",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "description": "CLI tool to initialize nodejs projects",
   "repository": {
     "type": "git",
